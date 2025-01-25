@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { ethers, toUtf8Bytes } from 'ethers';
 
-const HF_API_URL = "https://api-inference.huggingface.co/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/v1/chat/completions";
+const HF_API_URL = "https://api-inference.huggingface.co/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/v1/chat/completions"; // Hugging Face API endpoint
 const HF_API_KEY = process.env.NEXT_PUBLIC_HF_API_KEY; // Replace with your API key
 const CONTRACT_ADDRESS = "0x61d916a92f737c91973e38A47FC3676823350CDd"; // Replace with deployed contract address
 const PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY; // Replace with private key for signing transactions
