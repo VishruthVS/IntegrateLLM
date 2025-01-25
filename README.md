@@ -1,6 +1,16 @@
 ## Project Overview
 This project is a Web3-based decentralized application (dApp) built to leverage both blockchain and artificial intelligence (AI). The primary objective is to facilitate the secure and immutable storage of AI-generated data on the Ethereum blockchain. Users will interact with an AI model via a front-end interface, where their prompts are processed, and the responses are then securely stored on-chain in an Ethereum smart contract. This approach ensures that AI-generated content, such as prompts and responses, is tamper-proof and backed by blockchain's immutability.
 
+---
+
+## **Live Demo**  
+Check out the live version of the project:  
+👉 [Model Flow 7007](https://model-flow-7007.vercel.app/)  
+
+This demo showcases the implementation of ERC-7007, focusing on AI-generated content and its integration with blockchain technology.
+
+---
+
 ## Technological Stack
 ### Blockchain and Smart Contracts:
 - **Ethereum Blockchain**: The application utilizes the Ethereum blockchain to ensure decentralized data storage and transaction immutability. Smart contracts are written in Solidity, which is the standard language for developing on Ethereum. The contract facilitates the storage of tokenized data, such as AI-generated responses, securely on-chain.
