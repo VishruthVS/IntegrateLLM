@@ -1,3 +1,5 @@
+https://youtu.be/V86zkGI3qZE
+
 ## Project Overview
 This project is a Web3-based decentralized application (dApp) built to leverage both blockchain and artificial intelligence (AI). The primary objective is to facilitate the secure and immutable storage of AI-generated data on the Ethereum blockchain. Users will interact with an AI model via a front-end interface, where their prompts are processed, and the responses are then securely stored on-chain in an Ethereum smart contract. This approach ensures that AI-generated content, such as prompts and responses, is tamper-proof and backed by blockchain's immutability.
 
