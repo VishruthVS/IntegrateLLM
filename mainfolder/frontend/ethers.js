@@ -1,12 +1,9 @@
 import { ethers } from 'ethers';
 
-// Define the provider (e.g., using a JSON RPC provider for Sepolia)
 const provider = new ethers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/Sf54KEh8ZcLbSiXR-4Afyefwoc4pktOk");
 
-// Define the contract address (use the actual deployed address)
 const contractAddress = "0x61d916a92f737c91973e38A47FC3676823350CDd";
 
-// The ABI you provided
 const abi = [ 
     {
         "type": "function",
@@ -412,8 +409,8 @@ const abi = [
     }
 ];
 
-// Define your private key and connect to a signer
-const privateKey = "aca4592269f9c4c8dcae9831000be37ec9f2eb7d86a7cac6974ebaf1186f0ef5"; // Replace with your private key
+
+const privateKey = "aca4592269f9c4c8dcae9831000be37ec9f2eb7d86a7cac6974ebaf1186f0ef5"; 
 const wallet = new ethers.Wallet(privateKey, provider);
 
 // Create a contract instance with signer
@@ -448,11 +445,9 @@ async function addAigcData(tokenId, prompt, aigcData, proof) {
   }
 }
 
-// Example usage
-const ownerAddress = "0xF297fb18353F3e5E5eAe07806F93316D3848e238"; // Replace with actual address
+const ownerAddress = "0xF297fb18353F3e5E5eAe07806F93316D3848e238"; 
 getBalance(ownerAddress);
 
-// Example of adding AIGC data (replace with actual values)
 const tokenId = 1;
 const prompt = "Hello World"; // Example prompt
 const aigcData = "Some generated data"; // Example AIGC data
