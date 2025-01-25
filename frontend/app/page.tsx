@@ -5,9 +5,9 @@ import axios from 'axios';
 import { ethers, toUtf8Bytes } from 'ethers';
 
 const HF_API_URL = "https://api-inference.huggingface.co/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/v1/chat/completions";
-const HF_API_KEY = process.env.NEXT_PUBLIC_HF_API_KEY; // Replace with your API key
-const CONTRACT_ADDRESS = "0x61d916a92f737c91973e38A47FC3676823350CDd"; // Replace with deployed contract address
-const PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY; // Replace with private key for signing transactions
+const HF_API_KEY = process.env.NEXT_PUBLIC_HF_API_KEY; 
+const CONTRACT_ADDRESS = "0x61d916a92f737c91973e38A47FC3676823350CDd"; 
+const PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY; 
 const ABI = [ 
   {
       "type": "function",
@@ -417,12 +417,12 @@ export default function Page() {
     const [tokenId, setTokenId] = useState<number | string>('');
     const [prompt, setPrompt] = useState('');
     const [status, setStatus] = useState('');
-    const [aigcData, setAigcData] = useState<string>(''); // New state to store the LLM response
+    const [aigcData, setAigcData] = useState<string>(''); 
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('Processing...');
-        setAigcData(''); // Reset previous response
+        setAigcData(''); 
 
         try {
             // Query Hugging Face API
@@ -446,9 +446,8 @@ export default function Page() {
             });
 
             const responseContent = hfResponse.data.choices[0].message.content;
-            setAigcData(responseContent); // Update state with LLM model response
-            console.log("LLM Model Response:", responseContent); // Log the LLM model response
-
+            setAigcData(responseContent); 
+            console.log("LLM Model Response:", responseContent); 
             // Connect to Ethereum
             const provider = new ethers.JsonRpcProvider(
                 "https://eth-sepolia.g.alchemy.com/v2/Sf54KEh8ZcLbSiXR-4Afyefwoc4pktOk"
@@ -457,16 +456,16 @@ export default function Page() {
             const wallet = new ethers.Wallet(PRIVATE_KEY as string, provider);
             const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, wallet);
 
-            // Encode data as bytes
+            
             const promptBytes = toUtf8Bytes(prompt);
             const aigcDataBytes = toUtf8Bytes(responseContent);
             const proofBytes = toUtf8Bytes("sample_proof");
 
-            // Call the smart contract
+           
             const tx = await contract.addAigcData(tokenId, promptBytes, aigcDataBytes, proofBytes);
             await tx.wait();
 
-            // Log transaction hash and model response
+           
             console.log(`Transaction Hash: ${tx.hash}`);
             console.log(`Stored Data: Token ID: ${tokenId}, Prompt: ${prompt}, AI Response: ${responseContent}`);
 
