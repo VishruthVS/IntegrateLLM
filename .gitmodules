@@ -1,3 +1,0 @@
-[submodule "mainfolder/contract"]
-	path = mainfolder/contract
-	url = https://github.com/VishruthVS/IntegrateLLM.git
