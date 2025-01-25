@@ -471,8 +471,17 @@ export default function Page() {
             console.log(`Stored Data: Token ID: ${tokenId}, Prompt: ${prompt}, AI Response: ${responseContent}`);
 
             setStatus(`Data stored on-chain with tx: ${tx.hash}`);
-        } catch (error: any) {
-            console.error("Error:", error.response?.data || error.message);
+        } catch (error:unknown) {
+          if (axios.isAxiosError(error)) {
+            
+            console.error("Axios Error:", error.response?.data || error.message);
+        } else if (error instanceof Error) {
+            
+            console.error("General Error:", error.message);
+        } else {
+           
+            console.error("Unexpected Error:", error);
+        }
             setStatus("Error occurred while processing the data.");
         }
     };
